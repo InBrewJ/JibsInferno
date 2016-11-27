@@ -116,6 +116,7 @@ JibsInferno_EXTERNAL_OBJECTS =
 bin/JibsInferno: CMakeFiles/JibsInferno.dir/src/main.cpp.o
 bin/JibsInferno: CMakeFiles/JibsInferno.dir/src/Game.cpp.o
 bin/JibsInferno: CMakeFiles/JibsInferno.dir/build.make
+bin/JibsInferno: /usr/local/lib/libGLEW.dylib
 bin/JibsInferno: CMakeFiles/JibsInferno.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/LordNelson/Escape/C++/JibsInferno/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable bin/JibsInferno"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/JibsInferno.dir/link.txt --verbose=$(VERBOSE)
