@@ -1,0 +1,3 @@
+/Users/LordNelson/Escape/C++/JibsInferno/CMakeFiles/rebuild_cache.dir
+/Users/LordNelson/Escape/C++/JibsInferno/CMakeFiles/edit_cache.dir
+/Users/LordNelson/Escape/C++/JibsInferno/CMakeFiles/JibsInferno.dir
