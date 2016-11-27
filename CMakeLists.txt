@@ -10,5 +10,5 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 # Final Steps
-set(SOURCES src/main.cpp)
+set(SOURCES src/main.cpp src/Game.h src/Game.cpp)
 add_executable (JibsInferno ${SOURCES})

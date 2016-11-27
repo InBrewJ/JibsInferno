@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/LordNelson/Escape/C++/JibsInferno/src/Game.cpp" "/Users/LordNelson/Escape/C++/JibsInferno/CMakeFiles/JibsInferno.dir/src/Game.cpp.o"
   "/Users/LordNelson/Escape/C++/JibsInferno/src/main.cpp" "/Users/LordNelson/Escape/C++/JibsInferno/CMakeFiles/JibsInferno.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

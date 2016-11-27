@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
+/Users/LordNelson/Escape/C++/JibsInferno/src/Game.cpp
+Game.h
+/Users/LordNelson/Escape/C++/JibsInferno/src/Game.h
+
+/Users/LordNelson/Escape/C++/JibsInferno/src/Game.h
+iostream
+-
+
 /Users/LordNelson/Escape/C++/JibsInferno/src/main.cpp
 iostream
 -
+Game.h
+/Users/LordNelson/Escape/C++/JibsInferno/src/Game.h
 
