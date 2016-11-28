@@ -16,6 +16,9 @@
 // Include GLM
 #include <glm/glm.hpp>
 
+#include <string>
+#include <fstream>
+#include <vector>
 
 using namespace glm;
 using namespace std;
@@ -27,6 +30,7 @@ public:
 
 	int init();
 	int play();
+	GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path);
 
  private:
 	GLFWwindow* window;

@@ -23,6 +23,12 @@ GLFW/glfw3.h
 -
 glm/glm.hpp
 -
+string
+-
+fstream
+-
+vector
+-
 
 /Users/LordNelson/Escape/C++/JibsInferno/src/main.cpp
 iostream
