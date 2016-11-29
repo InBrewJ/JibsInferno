@@ -10,6 +10,9 @@
 
 Game::Game() {
 	cout << "Game constructor called" << endl;
+	width = 1024;
+	height = 768;
+	windowName = "Jib's Inferno";
 	init();
 }
 
@@ -28,7 +31,7 @@ int Game::init() {
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // We don't want old openGL
 
 	// Open a window and create its OpenGL context
-	window = glfwCreateWindow(1024, 768, "Jib's Inferno", NULL, NULL);
+	window = glfwCreateWindow(width, height, windowName.c_str(), NULL, NULL);
 
 	if (window == NULL) {
 		fprintf(stderr, "Failed to open OpenGL window.\n");
@@ -39,6 +42,8 @@ int Game::init() {
 	
 	glfwMakeContextCurrent(window);
 	glewExperimental = true;
+
+	return 0;
 	
 }
 
@@ -160,9 +165,9 @@ int Game::play() {
 	// An array of 3 vectors which represents 3 vertices
 
 	static const GLfloat g_vertex_buffer_data[] = {
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		0.0f, 1.0f, 0.0f
+		-0.05f, -0.05f, 0.0f,
+		0.05f, -0.05f, 0.0f,
+		0.0f, 0.05f, 0.0f
 	};
 
 	// This will identify out vertex buffer
@@ -181,13 +186,49 @@ int Game::play() {
 
 	// The above only needs to be done once
 
-		// And the do while loop
-
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
-	// Create and compile our GLSL program from the shaders
+	// Projection matrix: 45 degree field of view, 16:9(?) ratio, display range:
+	// 0.1 unit <-> 100 units
+
+	mat4 Projection = perspective(radians(45.0f), (float) width / (float) height, 0.1f, 100.0f);
+
+	// Camera Matrix
+	mat4 View = lookAt(
+					   vec3(0,0,-1), // Camera is a (0,0,-1) in world space
+					   vec3(0,0,0), // and looks at the origin
+					   vec3(0,1,0)  // Head is up (right hand rule)
+					   );
+
+	// Model matrix : an identity matrix (model will be at the origin)
+	// and the thing to be played around with for scaling/rotating/translating etc
+
+	// SCALE
+	// ROTATE
+	// TRANSLATE
+	
+	mat4 Model = mat4(1.0f);
+	vec3 myRotationAxis( 0, 0, 1);
+	Model = translate(vec3(0.4f, 0.3f, 0.0f));
+	Model = rotate( Model, 30.0f, myRotationAxis );
+
+	// Our ModelViewProjection : multiplication of our 3 matrices
+	mat4 mvp = Projection * View * Model;
+
+	// Create and compile our GLSL program from the programID
+
 	GLuint programID = LoadShaders( "src/SimpleVertexShader.vertexshader.glsl",
 									"src/SimpleFragmentShader.fragmentshader.glsl" );
+
+	// Second step, give it to GLSL
+
+	// Get a handle for our "MVP" uniform
+	// Only during the initialisation
+	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
+
+	
+
+	// And the do while loop
 
 	do {
 		// Clear the screen
@@ -207,6 +248,13 @@ int Game::play() {
 							  0,        // stride
 							  (void*)0  // array buffer offset
 							  );
+
+		// Send our transformation to the correctly bound shader, in the "MVP"
+		// uniform
+		// This is done in the main loop since each model will have a different MVP matrix
+		// (At least for the M part)
+
+		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);
 
 		// Use our shader
 		glUseProgram(programID);

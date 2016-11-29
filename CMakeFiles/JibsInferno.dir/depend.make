@@ -74,6 +74,12 @@ CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/exponential.hpp
 CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/fwd.hpp
 CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/geometric.hpp
 CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/glm.hpp
+CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/gtc/constants.hpp
+CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/gtc/constants.inl
+CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/gtc/matrix_transform.hpp
+CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/gtc/matrix_transform.inl
+CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/gtx/transform.hpp
+CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/gtx/transform.inl
 CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/integer.hpp
 CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/mat2x2.hpp
 CMakeFiles/JibsInferno.dir/src/Game.cpp.o: src/glm/mat2x3.hpp
@@ -171,6 +177,12 @@ CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/exponential.hpp
 CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/fwd.hpp
 CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/geometric.hpp
 CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/glm.hpp
+CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/gtc/constants.hpp
+CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/gtc/constants.inl
+CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/gtc/matrix_transform.hpp
+CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/gtc/matrix_transform.inl
+CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/gtx/transform.hpp
+CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/gtx/transform.inl
 CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/integer.hpp
 CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/mat2x2.hpp
 CMakeFiles/JibsInferno.dir/src/main.cpp.o: src/glm/mat2x3.hpp

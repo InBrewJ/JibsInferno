@@ -15,6 +15,8 @@
 #include <GLFW/glfw3.h>
 // Include GLM
 #include <glm/glm.hpp>
+#include <glm/gtx/transform.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include <string>
 #include <fstream>
@@ -34,5 +36,8 @@ public:
 
  private:
 	GLFWwindow* window;
+	int width;
+	int height;
+	string windowName;
 	
 };

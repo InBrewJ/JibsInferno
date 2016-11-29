@@ -75,6 +75,12 @@ CMakeFiles/JibsInferno.dir/src/Game.cpp.o
  src/glm/fwd.hpp
  src/glm/geometric.hpp
  src/glm/glm.hpp
+ src/glm/gtc/constants.hpp
+ src/glm/gtc/constants.inl
+ src/glm/gtc/matrix_transform.hpp
+ src/glm/gtc/matrix_transform.inl
+ src/glm/gtx/transform.hpp
+ src/glm/gtx/transform.inl
  src/glm/integer.hpp
  src/glm/mat2x2.hpp
  src/glm/mat2x3.hpp
@@ -172,6 +178,12 @@ CMakeFiles/JibsInferno.dir/src/main.cpp.o
  src/glm/fwd.hpp
  src/glm/geometric.hpp
  src/glm/glm.hpp
+ src/glm/gtc/constants.hpp
+ src/glm/gtc/constants.inl
+ src/glm/gtc/matrix_transform.hpp
+ src/glm/gtc/matrix_transform.inl
+ src/glm/gtx/transform.hpp
+ src/glm/gtx/transform.inl
  src/glm/integer.hpp
  src/glm/mat2x2.hpp
  src/glm/mat2x3.hpp
