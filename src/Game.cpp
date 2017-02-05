@@ -204,7 +204,7 @@ int Game::play() {
 		1.0f,-1.0f, 1.0f
 	};
 
-	static const GLfloat g_color_buffer_data[] = {
+	/*static const GLfloat g_color_buffer_data[] = {
 		0.583f,  0.771f,  0.014f,
 		0.609f,  0.115f,  0.436f,
 		0.327f,  0.483f,  0.844f,
@@ -241,12 +241,12 @@ int Game::play() {
 		0.673f,  0.211f,  0.457f,
 		0.820f,  0.883f,  0.371f,
 		0.982f,  0.099f,  0.879f
-	};
+		};*/
 
 	GLuint colorbuffer;
-	glGenBuffers(1, &colorbuffer);
+	/*glGenBuffers(1, &colorbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(g_color_buffer_data), g_color_buffer_data, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(g_color_buffer_data), g_color_buffer_data, GL_STATIC_DRAW);*/
 	
 	// This will identify out vertex buffer
 	GLuint vertexbuffer;
@@ -267,7 +267,7 @@ int Game::play() {
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
 	// 2nd attribute buffer : colors
-	glEnableVertexAttribArray(1);
+	/*glEnableVertexAttribArray(1);
 	glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
 	glVertexAttribPointer(
 						  1,                                // attribute. No particular reason for 1, but must match the layout in the shader.
@@ -276,7 +276,7 @@ int Game::play() {
 						  GL_FALSE,                         // normalized?
 						  0,                                // stride
 						  (void*)0                          // array buffer offset
-						  );
+						  );*/
 
 	// Projection matrix: 45 degree field of view, 16:9(?) ratio, display range:
 	// 0.1 unit <-> 100 units
@@ -316,13 +316,40 @@ int Game::play() {
 	// Only during the initialisation
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
 
-	
+	// Color buffer
+	static GLfloat g_color_buffer_data[12*3*3];
 
 	// And the do while loop
 
 	do {
 		// Clear the screen
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		// Change the color of the vertices randomly as fuck
+		// lots of casting here. Probably very slow? Who knows
+
+		for (int v = 0; v < 12*3 ; v++){
+			g_color_buffer_data[3*v+0] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+			g_color_buffer_data[3*v+1] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+			g_color_buffer_data[3*v+2] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+		}
+
+		glEnableVertexAttribArray(1);
+		glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
+		glVertexAttribPointer(
+						  1,                                // attribute. No particular reason for 1, but must match the layout in the shader.
+						  3,                                // size
+						  GL_FLOAT,                         // type
+						  GL_FALSE,                         // normalized?
+						  0,                                // stride
+						  (void*)0                          // array buffer offset
+						  );
+
+		
+		glGenBuffers(1, &colorbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(g_color_buffer_data), g_color_buffer_data, GL_STATIC_DRAW);
+		
 		// background dark blue
 		glClearColor(0.0f, 0.0f, 0.4f, 0.0f); 
 		
